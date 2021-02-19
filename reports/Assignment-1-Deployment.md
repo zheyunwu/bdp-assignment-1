@@ -133,9 +133,9 @@ Docker and Python3 should be installed
 ## Start to test!
 1. Put airbnb datasets in the /data directory of this project
 2. Go to the /code directory of this project
-3. Run following command:  
+3. Run following command to use dataingest:  
     ```shell
     $ python3 dataingest.py [table] [filename]
     ```
-    where 'table' could be 'listings', 'calendar' or 'reviews'
+    where 'table' could be 'listings', 'calendar' or 'reviews'  
     and 'filename' is the filename of the data csv file with extension such as 'reviews.csv'
