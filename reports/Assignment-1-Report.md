@@ -133,6 +133,8 @@ Here in this assignment, the write consistency level is set as "QUORUM" (sum_of_
 ### 2. Assume that each of your tenants/users will need a dedicated mysimbdp-coredms. Design the data schema of service information for mysimbdp-coredms that can be published into an existing registry (like ZooKeeper, consul or etcd) so that you can find information about which mysimbdp-coredms is for which tenants/users (1 point)  
 
 ### 3. Explain how you would change the implementation of mysimbdp-dataingest (in Part 2) to integrate a service discovery feature (no implementation is required) (1 point)  
+Import a service registry and load balancer into the architecture, every instance of cassandra service needs to register in the service registry, then client makes a request to a coredms service through a load balancer. The load balancer queries the service registry and routes each request to an available service instance. Now the architecture should kind of look like following:
+![service discovery architecture](./imgs/service_discovery.jpg) 
 
 ### 4. Assume that now only mysimbdp-daas can read and write data into mysimbdp-coredms, how would you change your mysimbdp-dataingest (in Part 2) to work with mysimbdp-daas? (1 point)  
 I would shift mysimbdp-dataingest in front of mysimbdp-daas, create a API in mysimbdp-daas for mysimbdp-dataingest to call.
